@@ -6,5 +6,6 @@ contains a function that simulates the biological process of penicillin reaction
 
 it takes a 7-D input and its output is 3-D.
 
-##CMOBO.ipynb
+## CMOBO.ipynb
+
 I've written a simple botorch work flow for CMOBO in discrete case. And I have some troubles in the continuous case, which is mainly from non-linear constraints generated from UCB, where I defined the `create_ucb_constraints` function. Errors arises when I passed the constraints into `optimize_acqf`.
