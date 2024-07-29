@@ -6,6 +6,13 @@ contains a function that simulates the biological process of penicillin reaction
 
 it takes a 7-D input and its output is 3-D.
 
-## CMOBO.ipynb
+it could also be imported in botorch directly
 
+## CMOBO.ipynb
 I've written a simple botorch work flow for CMOBO in discrete case.
+
+## Caco-2 plus
+The dataset menstioned in BOtied: Multi-objective Bayesian optimization with tied multivariate ranks,
+an application to active drug discovery(https://icml-compbio.github.io/2023/papers/WCBICML2023_paper71.pdf)
+
+created by @
