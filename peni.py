@@ -40,7 +40,7 @@ def peni(variable: torch.Tensor):
     kg = 7 * 10**3
     Eg = 5100.0 
     R = 1.9872
-    kd_log = 33  # log(10**33)
+    kd_log = 75.9853  # ln(10**33)
     Ed = 50000.0
     mup = 0.005
     Kp = 0.0002
