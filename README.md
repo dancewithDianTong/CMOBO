@@ -15,4 +15,4 @@ I've written a simple botorch work flow for CMOBO in discrete case.
 The dataset menstioned in BOtied: Multi-objective Bayesian optimization with tied multivariate ranks,
 an application to active drug discovery(https://icml-compbio.github.io/2023/papers/WCBICML2023_paper71.pdf)
 
-created by @
+It can be found in: https://github.com/jiwoncpark/botied/blob/main/botied/objectives/caco2_plus.py
