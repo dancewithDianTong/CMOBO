@@ -1,4 +1,5 @@
 ##---A penicillin function suitable for `platypus` package---##
+#modified from https://github.com/HarryQL/TuRBO-Penicillin/blob/main/BO-Penicillin/Penicilin_Demo_complex-BO.ipynb
 C_L_star = 8.26
 
 Y_xs = 0.45
