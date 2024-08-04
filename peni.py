@@ -1,88 +1,111 @@
-import torch
+##---A penicillin function suitable for `platypus` package---##
+C_L_star = 8.26
 
-def peni(variable: torch.Tensor):
-    '''
-    input(suggested): a 1x7 tensor
-    V: culture medium volume L [60, 120]
-    X: biomass concentration g/L [0.05, 18]
-    T: temperature K [293, 303]
-    S: glucose substrate concentration g/L [0.05, 18]
-    F: substrate feed rate L/hr [0.01, 0.50]
-    S_f: substrate feed concentration g /L [500, 700]
-    pH: pH [5, 6.5]
+Y_xs = 0.45
+Y_xo = 0.04
+Y_ps = 0.90
+Y_po = 0.20
 
-    return:
-    P: concentration of penicillin (>=0)
-    t: reaction time (>=0)
-    CO2: CO2 concentration (>=0)
-    '''
-    # Initialize
-    V, X, T, S, F, S_f, pH = variable[:,0], variable[:,1], variable[:,2], variable[:,3], variable[:,4], variable[:,5], variable[:,6]
-    P = torch.zeros_like(V)
-    t = torch.zeros_like(V)
-    CO2 = torch.zeros_like(V)
-    dt = 0.5
-    process_end = False
-    iter = 0
 
-    H = 10**(-pH)
-    lamb = 2.5 * 10**(-4)
-    T0 = 273.1
-    Tv = 373.1
-    alpha1 = 0.143
-    alpha2 = 4 * 10**(-7)
-    alpha3 = 10**(-4)
-    mx = 0.014
-    mux = 0.092
-    K1 = 10**(-10)
-    K2 = 7 * 10**(-5)
-    Kx = 0.15
-    kg = 7 * 10**3
-    Eg = 5100.0 
-    R = 1.9872
-    kd_log = 75.9853  # ln(10**33)
-    Ed = 50000.0
-    mup = 0.005
-    Kp = 0.0002
-    K_I = 0.1 
-    K = 0.04
-    Yxs = 0.45
-    Yps = 0.90
 
-    while not process_end:
-        iter += 1
-        # dV
-        dV = F - V * lamb * (torch.exp(5 * ((T - T0) / (Tv - T0))) - 1)
+K_1 = 10**(-10)
+K_2 = 7 * 10**(-5)
+m_X = 0.014
+m_o = 0.467
 
-        # dX
-        mu = (mux / (1 + K1 / H + H / K2)) * (S / (Kx * X + S)) * (kg * torch.exp(-Eg / (R * T)) - torch.exp(kd_log - Ed / (R * T)))
-        dX = mu * X - (X / V) * dV
+alpha_1 = 0.143
+alpha_2 = 4*10**(-7)
+alpha_3 = 10**(-4)
+mu_X = 0.092
+K_X = 0.15
+# K_ox = 2*10**(-2)
+# K_op = 5*10**(-4)
+mu_p = 0.005
+K_p = 0.0002
+K_I = 0.10
+p = 3
+K = 0.04
+k_g = 7 * 10**(3)
+E_g = 5100
+k_d = 10**(33)
+E_d = 50000
 
-        # dP
-        mupp = mup * (S / (Kp + S + (S**2 / K_I)))
-        dP = mupp * X - K * P - (P / V) * dV
+# rou_dot_C_p = 1/1500
+# rou_c_dot_C_pc = 1/2000
 
-        # dS
-        dS = - (mu / Yxs) * X - (mupp / Yps) * X - mx * X + (F * S_f / V) - (S / V) * dV
+rou_dot_C_p = 1000
+rou_c_dot_C_pc = 1000
 
-        # dCO2
-        dCO2 = alpha1 * dX + alpha2 * X + alpha3
 
-        # Update
-        V += dV * dt
-        X += dX * dt
-        P += dP * dt
-        S += dS * dt
-        CO2 += dCO2 * dt
+r_q1 = 60
+r_q2 = 1.6783 * 10**(-4)
+a = 1000
+b = 0.60
+
+alpha = 70
+beta = 0.4
+lambd = 2.5 * 10**(-4)
+gamma = 10**(-5)
+
+
+# kelvin
+T_v = 273
+T_o = 373
+
+
+
+# CAL/(MOL K)
+R = 1.9872
+import numpy as np
+def peni(X_input):
+    
+#     V_limits, X_limits, T_limits, S_limits, F_limits, s_f_limits, H_limits
+    
+    V, X, T, S, F, s_f, H_ = X_input[0],X_input[1],X_input[2],X_input[3], X_input[4], X_input[5], X_input[6]
+    
+    P = 0
+    CO2 = 0
+    t = 0
+    dt = 1
+    H = 10**(-H_)
+
+    for i in range(2500):
+        
+        F_loss = V * lambd*(np.exp(5*((T - T_o)/(T_v - T_o))) - 1)
+        dV_dt = F  - F_loss
+
+        mu = (mu_X / (1 + K_1/H + H/K_2)) * (S / (K_X * X + S))  * ((k_g * np.exp(-E_g/(R*T))) - (k_d * np.exp(-E_d/(R*T))))
+        dX_dt = mu * X - (X / V) * dV_dt
+        
+        mu_pp = mu_p * (S / (K_p + S + S**2 / K_I)) 
+        dS_dt = - (mu / Y_xs) * X - (mu_pp/ Y_ps) * X - m_X * X + F * s_f / V - (S / V) * dV_dt
+        
+        dP_dt = (mu_pp * X) - K * P - (P / V) * dV_dt    
+        
+        dCO2_dt = alpha_1 *dX_dt + alpha_2 * X + alpha_3
+
+
+        # UPDATE
         t += dt
+        P = P + dP_dt*dt
+        V = V + dV_dt*dt
+        X = X + dX_dt*dt
+        S = S + dS_dt*dt
+        CO2 = CO2 + dCO2_dt*dt
+        
 
-        # Whether to stop process
-        if (V > 180):  # Exceed maximum volume
-            process_end = True
-        elif dP.abs().max() < 10**(-12):  # P converges
-            process_end = True
-        elif iter > 1000:  # Max iteration
-            process_end = True
+        if V > 180:
+#             print('Too large V')
+            break
 
-    return torch.cat([P.unsqueeze(-1), t.unsqueeze(-1), CO2.unsqueeze(-1)], dim= 1)
+        if S < 0:
+#             print('Too small S')
+            break
 
+        if dP_dt < 10e-12:
+#             print('Converged P')
+            break
+
+#     print('final results: ' + 'P = '+str(np.round(P, 2)) +', S = '+str(np.round(S, 2)) + ', X = ' + str(np.round(X, 2)) + ', V = ' + str(np.round(V, 2)) + ', t = ' + str(i))
+#     GpyOpt does minimization only
+    return [P, -CO2, -t], [P, -CO2, -t]
