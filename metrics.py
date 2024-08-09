@@ -21,5 +21,4 @@ def HV(Y, ref):
 ###----------violation----------###
 def violation(Y, ref):
     vio_raw = - torch.min(Y -ref, torch.zeros_like(Y))
-    vio_max = torch.max(vio_raw, dim= 0)[0]
-    return (vio_raw/ vio_max).sum(-1)
+    return (vio_raw).sum(-1)
