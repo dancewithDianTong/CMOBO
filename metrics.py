@@ -25,28 +25,26 @@ def violation(Y, ref):
 
 ###Cumulative regret##
 
-def cum_regret(tensor, ub = 10000):
+def cum_regret(hv, ub = 10000):
     # Initialize the result tensor with the original tensor
-    result = tensor.clone()
+    result = hv.clone()
     result = ub - result
     
     # Perform cumulative sum along each dimension
-    for dim in range(tensor.dim()):
+    for dim in range(hv.dim()):
         result = result.cumsum(dim)
     return result
 ###Cumulative violation###
-def cum_violation(tensor, ref):
-    result = tensor.clone()
-    vio = violation(result, ref)
-    for dim in range(tensor.dim()):
-        vio = vio.cumsum(dim)
-    return vio
+def cum_violation(vio):
+    result = vio.clone()
+    for dim in range(vio.dim()):
+        result = result.cumsum(dim)
+    return result
 ###constraint regret###
-def constraint_regret(Y, ref, hv):
-    vio = violation(Y, ref)
-    hv = 10000 - hv
-    hv = (hv - hv.min()) / (hv.max() - hv.min())
-    vio = (vio - vio.min()) / (vio.max() - vio.min())
+def constraint_regret(vio,  hv, ub):
+    hv = ub - hv
+    hv = (hv) / (hv.max())
+    vio = (vio) / (vio.max())
     Sum = hv + vio
     for dim in range(Sum.dim()):
         Sum = torch.minimum(Sum, Sum.cummin(dim=dim).values)
