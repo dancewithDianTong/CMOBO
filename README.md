@@ -1,9 +1,11 @@
+
 # CMOBO
-Constains experiment codes for CMOBO over the test functions mentioned in the paper.
+Contains experiment codes for CMOBO over the test functions mentioned in the paper.
 
 ## Environment
-(TD: add verified hardwares.)
-python package used:
+(TODO: add verified hardware specifications.)
+
+The Python packages used are:
 - botorch
 - torch
 - numpy
@@ -11,20 +13,17 @@ python package used:
 - platypus
 - scipy
 
-The details has been included in the requirementx.txt, and could be imported with the following command:
+The details have been included in the `requirements.txt` file, and can be installed with the following command:
 
 ```shell
-
 pip install -r requirements.txt
-
 ```
 
 ## Structure
 
-The respository is structured as the following. The CMOBO\experimeents_CMOBO directory contains the implementation for the corresponding benchmarks. The CMOBO\experiments_non_constrained containts the non-constrained version of two baselines. CMOBO\datasets contains the necessary data files.
+The repository is structured as follows. The `CMOBO/experiments_CMOBO` directory contains the implementation for the corresponding benchmarks. The `CMOBO/experiments_non_constrained` directory contains the non-constrained version of two baselines. `CMOBO/datasets` contains the necessary data files.
 
 ```shell
-
 CMOBO/
 ├── datasets/
 │   ├── caco2++.ipynb
@@ -38,7 +37,7 @@ CMOBO/
 │   ├── branin-currin_CMOBO_exp.ipynb
 │   ├── C2-DTLZ2_CMOBO_exp.ipynb
 │   ├── caco-2++_CMOBO_exp.ipynb
-│   ├── disc brake design_CMOBO_exp.ipynb
+│   ├── disc_brake_design_CMOBO_exp.ipynb
 │   ├── ESOL+_CMOBO_exp.ipynb
 │   ├── penicillin_CMOBO_exp.ipynb
 │   └── toy_CMOBO_exp.ipynb
