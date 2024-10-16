@@ -48,6 +48,8 @@ CMOBO/
 │   ├── qNEHVI_peni_unconstrained.ipynb
 │   └── qNEHVI_toy_unconstrained.ipynb
 ├── README.md
+├── requirements.txt
+├── hardware.txt
 └── toolkits/
     ├── Customized_Kernels.py
     ├── metrics.py
