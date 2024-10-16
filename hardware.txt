@@ -1,0 +1,6 @@
+Platform: Darwin
+Platform Version: Darwin Kernel Version 23.6.0: Mon Jul 29 21:14:21 PDT 2024; root:xnu-10063.141.2~1/RELEASE_ARM64_T8103
+Architecture: ('64bit', '')
+Processor: arm
+CPU Cores: 8
+Total Memory (GB): 16.0
