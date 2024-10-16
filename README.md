@@ -20,7 +20,7 @@ The details have been included in the `requirements.txt` file, and can be instal
 pip install -r requirements.txt
 ```
 
-For `platypus`, see  [platypus](https://platypus.readthedocs.io/en/latest/getting-started.html#installing-platypus)
+For `platypus`, see  [platypus](https://platypus.readthedocs.io/en/latest/getting-started.html#installing-platypus).
 
 ## Structure
 
