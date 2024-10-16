@@ -3,9 +3,11 @@ botorch==0.11.3
 GPy==1.13.1
 GPyOpt==1.2.6
 gpytorch==1.12
+gauche==0.1.6
 linear-operator==0.5.2
 numpy==1.25.2
 paramz==0.9.6
+platypus-opt==1.0.3  # (if Platypus was installed, otherwise include its version if available)
 pyDOE3==1.0.4
 pyro-api==0.1.2
 pyro-ppl==1.9.1
