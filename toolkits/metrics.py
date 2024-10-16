@@ -1,30 +1,20 @@
 import torch
 
-###----------hypervolume----------###
+###----------simple hypervolume----------###
 from botorch.utils.multi_objective.box_decompositions.dominated import (
     DominatedPartitioning,
 )
-
 def HV(Y, ref):
-    """
-    input:
-    Y: a (t by m) tensor, current observed objective vlaues. 
-    ref: a (m) dimensional tensor
-
-    return:
-    hv: the hypervolume indicator of current observation
-    """
     partition = DominatedPartitioning(ref_point=ref, Y=Y)
     hv = partition.compute_hypervolume().item()
     return hv
 
-###----------violation----------###
+###----------simple violation----------###
 def violation(Y, ref):
     vio_raw = - torch.min(Y -ref, torch.zeros_like(Y))
     return (vio_raw).sum(-1)
 
-###Cumulative regret##
-
+###----------cumulative hypervolume regret----------###
 def cum_regret(hv, ub = 10000):
     # Initialize the result tensor with the original tensor
     result = hv.clone()
@@ -34,13 +24,15 @@ def cum_regret(hv, ub = 10000):
     for dim in range(hv.dim()):
         result = result.cumsum(dim)
     return result
-###Cumulative violation###
+
+###----------cumulative violation----------###
 def cum_violation(vio):
     result = vio.clone()
     for dim in range(vio.dim()):
         result = result.cumsum(dim)
     return result
-###constraint regret###
+
+###----------constraint regret----------###
 def constraint_regret(vio,  hv, ub):
     hv = ub - hv
     hv = (hv) / (hv.max())
