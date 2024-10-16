@@ -4,7 +4,7 @@ Contains experiment codes for CMOBO over the test functions mentioned in the pap
 
 ## Environment
 
-Experiments were implemented in python 3.10.6
+Experiments were implemented in `Python 3.10.6`
 
 The Python packages used are:
 - botorch
