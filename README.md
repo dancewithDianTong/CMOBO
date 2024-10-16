@@ -20,6 +20,8 @@ The details have been included in the `requirements.txt` file, and can be instal
 pip install -r requirements.txt
 ```
 
+For `platypus`, see  [platypus](https://platypus.readthedocs.io/en/latest/getting-started.html#installing-platypus)
+
 ## Structure
 
 The repository is structured as follows. The `CMOBO/experiments_CMOBO` directory contains the implementation for the corresponding benchmarks. The `CMOBO/experiments_non_constrained` directory contains the non-constrained version of two baselines. `CMOBO/datasets` contains the necessary data files.
