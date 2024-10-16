@@ -3,7 +3,8 @@
 Contains experiment codes for CMOBO over the test functions mentioned in the paper.
 
 ## Environment
-(TODO: add verified hardware specifications.)
+
+Experiments were implemented in python 3.10.6
 
 The Python packages used are:
 - botorch
