@@ -7,8 +7,8 @@ Contains experiment codes for CMOBO over the test functions mentioned in the pap
 Experiments were conducted in `Python 3.10.6`. See `hardware.txt` for detialed hardware settings.
 
 The Python packages used are:
-- botorch
-- torch
+- BoTorch
+- Torch
 - numpy
 - gpytorch
 - platypus
