@@ -13,6 +13,7 @@ The Python packages used are:
 - gpytorch
 - platypus
 - scipy
+- GAUCHE
 
 The details have been included in the `requirements.txt` file, and can be installed with the following command:
 
