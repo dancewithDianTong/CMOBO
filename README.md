@@ -1,6 +1,6 @@
 
 # CMOBO
-Contains experiment codes for CMOBO over the test functions mentioned in the paper.
+Contains experiment codes for CMOBO over the test functions mentioned in the paper 'Constrained Multi-objective Bayesian Optimization through Optimistic Constraints Estimation'.
 
 ## Environment
 
