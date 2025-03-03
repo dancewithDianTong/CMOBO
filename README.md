@@ -1,5 +1,4 @@
 # CMOBO
-<<<<<<< HEAD
 
 **Constrained Multi-objective Bayesian Optimization through Optimistic Constraints Estimation**  
 This repository contains the experimental code for CMOBO, as described in the paper:
@@ -31,12 +30,6 @@ If you use this repository, please cite the paper using the following BibTeX ent
 
 ## Environment
 
-All dependencies are listed in the requirements.txt file. Install them using:
-=======
-Contains experiment codes for CMOBO over the test functions mentioned in the paper 'Constrained Multi-objective Bayesian Optimization through Optimistic Constraints Estimation'.
-
-## Environment
-
 Experiments were conducted in `Python 3.10.6`. See `hardware.txt` for detialed hardware settings.
 
 The Python packages used are:
@@ -47,19 +40,14 @@ The Python packages used are:
 - platypus
 - scipy
 - GAUCHE
->>>>>>> 9571e850434b36e7ca419cd3188dac691bbadd3e
 
 ```bash
 pip install -r requirements.txt
 ```
 
-<<<<<<< HEAD
-## Quick Start
-=======
 For `platypus`, see  [platypus](https://platypus.readthedocs.io/en/latest/getting-started.html#installing-platypus).
 
 ## Structure
->>>>>>> 9571e850434b36e7ca419cd3188dac691bbadd3e
 
 (1) Clone the Repository:
 
@@ -102,36 +90,6 @@ CMOBO/
 │   ├── penicillin_CMOBO_exp.ipynb         # Penicillin production benchmark experiment
 │   └── toy_CMOBO_exp.ipynb                # Toy function benchmark experiment
 ├── experiments_non_constrained/
-<<<<<<< HEAD
-│   ├── qNEHVI_peni_unconstrained.ipynb    # Unconstrained qNEHVI experiment (Penicillin)
-│   └── qNEHVI_toy_unconstrained.ipynb     # Unconstrained qNEHVI experiment (Toy function)
-├── toolkits/
-│   ├── Customized_Kernels.py  # Customized kernel implementations for GP models
-│   ├── metrics.py             # Performance metrics and evaluation functions
-│   └── peni.py                # Helper functions for Penicillin experiments
-└── README.md
-```
-
-## Usage
-
-- Experiment Notebooks:
-Each Jupyter notebook in the experiments_CMOBO and experiments_non_constrained directories is self-contained. Open them in Jupyter Notebook or JupyterLab to run the experiments interactively.
-
-- Data Files:
-The datasets directory contains the required data files for running the experiments. Ensure these files are in place when executing the notebooks.
-
-- Toolkits:
-The code in the toolkits directory provides auxiliary functions (e.g., custom kernels, evaluation metrics) that support the main experimental code.
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Contact
-
-For questions, issues, or contributions, please open an issue on GitHub or contact the authors.
-
-=======
 │   ├── qNEHVI_peni_unconstrained.ipynb
 │   └── qNEHVI_toy_unconstrained.ipynb
 ├── README.md
@@ -142,10 +100,18 @@ For questions, issues, or contributions, please open an issue on GitHub or conta
     ├── metrics.py
     └── peni.py
 ```
+
 ## toolkits
 
 the toolkits file contains  `peni.py`, `design.py` and `metrics.py`
 
 - `peni.py` and `design.py` are numpy implementations of the Penicillin Function and the Disc Brake Design Problem.
 - `metrics.py` contains the implementations of the performance metrics mentioned in the paper.
->>>>>>> 9571e850434b36e7ca419cd3188dac691bbadd3e
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+
+For questions, issues, or contributions, please open an issue on GitHub or contact the authors.
