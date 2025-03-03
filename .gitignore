@@ -120,3 +120,5 @@ cython_debug/
 
 # PyCharm settings
 .idea/
+
+*.DS_Store
