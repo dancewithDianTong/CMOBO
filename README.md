@@ -1,7 +1,7 @@
-# CMOBO
+# CMOBOO
 
 **Constrained Multi-objective Bayesian Optimization through Optimistic Constraints Estimation**  
-This repository contains the experimental code for CMOBO, as described in the paper:
+This repository contains the experimental code for CMOBOO, as described in the paper:
 
 > Li, Diantong, Fengxue Zhang, Chong Liu, and Yuxin Chen. “Constrained Multi-objective Bayesian Optimization through Optimistic Constraints Estimation.” *arXiv preprint arXiv:2411.03641*, 2024.
 
