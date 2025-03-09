@@ -11,7 +11,7 @@ If you use this code in your research, please consider citing the paper (see the
 
 ## Overview
 
-CMOBO is designed to perform constrained multi-objective Bayesian optimization on several benchmark functions. The repository includes implementations for both constrained experiments and non-constrained baseline comparisons. Detailed instructions, data files, and experiment notebooks are provided.
+CMOBOO is designed to perform constrained multi-objective Bayesian optimization on several benchmark functions. The repository includes implementations for both constrained experiments and non-constrained baseline comparisons. Detailed instructions, data files, and experiment notebooks are provided.
 
 ---
 
@@ -52,8 +52,8 @@ For `platypus`, see  [platypus](https://platypus.readthedocs.io/en/latest/gettin
 (1) Clone the Repository:
 
 ```bash
-git clone https://github.com/yourusername/CMOBO.git
-cd CMOBO
+git clone https://github.com/yourusername/CMOBOO.git
+cd CMOBOO
 ```
 
 (2) Install Dependencies:
@@ -64,22 +64,22 @@ pip install -r requirements.txt
 
 (3) Run an Experiment Notebook:
 
-Open one of the Jupyter notebooks in the experiments_CMOBO directory (e.g., toy_CMOBO_exp.ipynb) using your preferred Jupyter environment.
+Open one of the Jupyter notebooks in the experiments_CMOBOO directory (e.g., toy_CMOBOO_exp.ipynb) using your preferred Jupyter environment.
 
 ## Repository Structure
 
 The repository is organized as follows:
 
 ``` bash
-CMOBO/
-├── experiments_CMOBO/
-│   ├── branin-currin_CMOBO_exp.ipynb    # Jupyter notebook for the Branin-Currin experiment
-│   ├── C2-DTLZ2_CMOBO_exp.ipynb         # Jupyter notebook for the C2-DTLZ2 experiment
-│   ├── caco-2++_CMOBO_exp.ipynb         # Jupyter notebook for the Caco-2++ experiment
-│   ├── disc_brake_design_CMOBO_exp.ipynb  # Jupyter notebook for the Disc Brake Design experiment
-│   ├── ESOL+_CMOBO_exp.ipynb             # Jupyter notebook for the ESOL+ experiment
-│   ├── penicillin_CMOBO_exp.ipynb         # Jupyter notebook for the Penicillin experiment
-│   └── toy_CMOBO_exp.ipynb                # Jupyter notebook for the Toy function experiment
+CMOBOO/
+├── experiments_CMOBOO/
+│   ├── branin-currin_CMOBOO_exp.ipynb    # Jupyter notebook for the Branin-Currin experiment
+│   ├── C2-DTLZ2_CMOBOO_exp.ipynb         # Jupyter notebook for the C2-DTLZ2 experiment
+│   ├── caco-2++_CMOBOO_exp.ipynb         # Jupyter notebook for the Caco-2++ experiment
+│   ├── disc_brake_design_CMOBOO_exp.ipynb  # Jupyter notebook for the Disc Brake Design experiment
+│   ├── ESOL+_CMOBOO_exp.ipynb             # Jupyter notebook for the ESOL+ experiment
+│   ├── penicillin_CMOBOO_exp.ipynb         # Jupyter notebook for the Penicillin experiment
+│   └── toy_CMOBOO_exp.ipynb                # Jupyter notebook for the Toy function experiment
 ├── experiments_non_constrained/
 │   ├── qNEHVI_peni_unconstrained.ipynb    # Notebook for the unconstrained qNEHVI experiment (Penicillin)
 │   └── qNEHVI_toy_unconstrained.ipynb     # Notebook for the unconstrained qNEHVI experiment (Toy function)
