@@ -1,7 +1,7 @@
-# CMOBOO
+# COMBOO
 
 **Constrained Multi-objective Bayesian Optimization through Optimistic Constraints Estimation**  
-This repository contains the experimental code for CMOBOO, as described in the paper:
+This repository contains the experimental code for COMBOO, as described in the paper:
 
 > Li, Diantong, Fengxue Zhang, Chong Liu, and Yuxin Chen. “Constrained Multi-objective Bayesian Optimization through Optimistic Constraints Estimation.” *arXiv preprint arXiv:2411.03641*, 2024.
 
@@ -11,7 +11,7 @@ If you use this code in your research, please consider citing the paper (see the
 
 ## Overview
 
-CMOBOO is designed to perform constrained multi-objective Bayesian optimization on several benchmark functions. The repository includes implementations for both constrained experiments and non-constrained baseline comparisons. Detailed instructions, data files, and experiment notebooks are provided.
+COMBOO is designed to perform constrained multi-objective Bayesian optimization on several benchmark functions. The repository includes implementations for both constrained experiments and non-constrained baseline comparisons. Detailed instructions, data files, and experiment notebooks are provided.
 
 ---
 
@@ -52,8 +52,8 @@ For `platypus`, see  [platypus](https://platypus.readthedocs.io/en/latest/gettin
 (1) Clone the Repository:
 
 ```bash
-git clone https://github.com/yourusername/CMOBOO.git
-cd CMOBOO
+git clone https://github.com/yourusername/COMBOO.git
+cd COMBOO
 ```
 
 (2) Install Dependencies:
@@ -64,22 +64,22 @@ pip install -r requirements.txt
 
 (3) Run an Experiment Notebook:
 
-Open one of the Jupyter notebooks in the experiments_CMOBOO directory (e.g., toy_CMOBOO_exp.ipynb) using your preferred Jupyter environment.
+Open one of the Jupyter notebooks in the experiments_COMBOO directory (e.g., toy_COMBOO_exp.ipynb) using your preferred Jupyter environment.
 
 ## Repository Structure
 
 The repository is organized as follows:
 
 ``` bash
-CMOBOO/
-├── experiments_CMOBOO/
-│   ├── branin-currin_CMOBOO_exp.ipynb    # Jupyter notebook for the Branin-Currin experiment
-│   ├── C2-DTLZ2_CMOBOO_exp.ipynb         # Jupyter notebook for the C2-DTLZ2 experiment
-│   ├── caco-2++_CMOBOO_exp.ipynb         # Jupyter notebook for the Caco-2++ experiment
-│   ├── disc_brake_design_CMOBOO_exp.ipynb  # Jupyter notebook for the Disc Brake Design experiment
-│   ├── ESOL+_CMOBOO_exp.ipynb             # Jupyter notebook for the ESOL+ experiment
-│   ├── penicillin_CMOBOO_exp.ipynb         # Jupyter notebook for the Penicillin experiment
-│   └── toy_CMOBOO_exp.ipynb                # Jupyter notebook for the Toy function experiment
+COMBOO/
+├── experiments_COMBOO/
+│   ├── branin-currin_COMBOO_exp.ipynb    # Jupyter notebook for the Branin-Currin experiment
+│   ├── C2-DTLZ2_COMBOO_exp.ipynb         # Jupyter notebook for the C2-DTLZ2 experiment
+│   ├── caco-2++_COMBOO_exp.ipynb         # Jupyter notebook for the Caco-2++ experiment
+│   ├── disc_brake_design_COMBOO_exp.ipynb  # Jupyter notebook for the Disc Brake Design experiment
+│   ├── ESOL+_COMBOO_exp.ipynb             # Jupyter notebook for the ESOL+ experiment
+│   ├── penicillin_COMBOO_exp.ipynb         # Jupyter notebook for the Penicillin experiment
+│   └── toy_COMBOO_exp.ipynb                # Jupyter notebook for the Toy function experiment
 ├── experiments_non_constrained/
 │   ├── qNEHVI_peni_unconstrained.ipynb    # Notebook for the unconstrained qNEHVI experiment (Penicillin)
 │   └── qNEHVI_toy_unconstrained.ipynb     # Notebook for the unconstrained qNEHVI experiment (Toy function)
